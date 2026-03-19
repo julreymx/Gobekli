@@ -248,6 +248,7 @@ export function Landing() {
                                 className="hero-headline"
                                 initial="hidden"
                                 animate="visible"
+                                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
                                 variants={{
                                     hidden: { opacity: 0 },
                                     visible: {
@@ -257,7 +258,7 @@ export function Landing() {
                                 }}
                             >
                                 {"Human judgement,".split(' ').map((word, i) => (
-                                    <span key={`w1-${i}`} style={{ display: 'inline-block', overflow: 'hidden', marginRight: '0.3em', paddingBottom: '0.1em' }}>
+                                    <span key={`w1-${i}`} style={{ display: 'inline-flex', overflow: 'hidden', marginRight: '0.3em', paddingBottom: '0.1em' }}>
                                         <motion.span
                                             style={{ display: 'inline-block', transformOrigin: 'bottom' }}
                                             variants={{
@@ -272,7 +273,7 @@ export function Landing() {
                                 ))}
                                 <br />
                                 {"AI scale.".split(' ').map((word, i) => (
-                                    <span key={`w2-${i}`} style={{ display: 'inline-block', overflow: 'hidden', marginRight: '0.3em', paddingBottom: '0.1em' }}>
+                                    <span key={`w2-${i}`} style={{ display: 'inline-flex', overflow: 'hidden', marginRight: '0.3em', paddingBottom: '0.1em' }}>
                                         <motion.span
                                             style={{ display: 'inline-block', transformOrigin: 'bottom' }}
                                             variants={{

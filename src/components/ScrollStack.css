@@ -190,12 +190,26 @@
     }
 
     .sc-card-video-col {
-        min-height: 240px;
-        border-radius: 0 0 36px 36px !important;
-        width: 100% !important;
+        min-height: 154px !important;
+        flex: 0 0 auto !important;
     }
 
     .sc-card-text {
-        padding: 3.5rem 2.5rem;
+        padding: 2rem 1.5rem 1.5rem !important;
+        flex: 1 1 auto !important;
+    }
+
+    .sc-card-title {
+        font-size: 1.55rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .sc-card-body {
+        font-size: 0.9rem !important;
+        line-height: 1.45 !important;
+    }
+
+    .sc-layout-box {
+        min-height: 88vh !important;
     }
 }

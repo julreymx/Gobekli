@@ -622,11 +622,13 @@
 .diff-pre {
     font-family: var(--font-mono);
     font-size: 0.78rem;
-    color: rgba(246, 245, 239, 0.35);
+    color: rgba(246, 245, 239, 0.45);
     text-decoration: line-through;
     margin-bottom: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-weight: 600;
+    /* slightly bolder for readability */
 }
 
 .diff-post {
@@ -1034,9 +1036,47 @@ a.footer-data-line:hover {
         grid-template-columns: 1fr;
     }
 
+    .hero-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-text-col {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+    }
+
+    .hero-img-col {
+        height: 50vh;
+        order: -1;
+        /* Image first on mobile? Or after title? Usually title first is better marketing but image first is more 'app-like'. User request says 'clean', I'll keep title first. */
+        order: 2;
+    }
+
+    .hero-headline {
+        font-size: 2.25rem !important;
+        line-height: 1.15;
+        margin-bottom: 2rem;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .hero-text-wrapper {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-sub {
+        text-align: center;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
     .rubro-transform {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .transform-arrow {

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {
     motion as Motion,
     useScroll,
@@ -13,6 +13,15 @@ export const ScrollStackItem = ({
     total = 1,
     progress,
 }) => {
+    // Add responsive detection to update ranges on rotation/resize
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 900 : false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 900);
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     // Smooth the global progress with a fluid spring
     const smoothProgress = useSpring(progress, {
         stiffness: 75,
@@ -34,7 +43,8 @@ export const ScrollStackItem = ({
     // We use a safe numeric offset (2000px) which is safely offscreen on standard displays
     const yDomain = [Math.max(0, enterStart), Math.max(0.01, enterEnd)];
     // Card 0 doesn't slide in, it's just there. The rest slide in from Y=1800 to their cascade offset.
-    const yRange = index === 0 ? [0, 0] : [1800, index * 30];
+    // On mobile, we want a larger overlap factor so the content remains visible as a "stack"
+    const yRange = index === 0 ? [0, 0] : [1800, index * (isMobile ? 32 : 30)];
     const y = useTransform(smoothProgress, yDomain, yRange);
 
     // 2. Shrinking into the background (depth effects)
@@ -149,11 +159,13 @@ const ScrollStack = ({ children, className = '' }) => {
             >
                 {/* The layout box that defines the central card bounds */}
                 <div
+                    className="sc-layout-box"
                     style={{
                         position: 'relative',
                         width: '100%',
                         maxWidth: 'var(--content-max)',
-                        height: '70vh',
+                        minHeight: '70vh',
+                        height: 'auto',
                         padding: '0 1.5rem',
                         boxSizing: 'border-box'
                     }}
