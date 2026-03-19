@@ -1099,20 +1099,49 @@ a.footer-data-line:hover {
     }
 
     .landing-footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2.5rem !important;
+        padding: 4rem 1.5rem 2rem !important;
     }
 
-    .footer-left,
+    .footer-left {
+        order: 2;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important;
+    }
+
     .footer-right {
-        flex-direction: column;
-        gap: 0.75rem;
+        order: 1;
+        /* Brand mark at the top */
+        flex-direction: column-reverse !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
     }
 
-    .footer-contact-info {
-        flex-wrap: wrap;
-        justify-content: center;
+    .footer-data--right {
+        order: 2;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    /* Put alien at the absolute bottom */
+    .footer-left .footer-mark-link {
+        order: 10;
+        margin-top: 1rem;
+    }
+
+    .footer-data {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-data-line {
+        opacity: 0.4;
+        /* Better visibility on mobile */
+        white-space: normal;
     }
 }
 
