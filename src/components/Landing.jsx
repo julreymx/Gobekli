@@ -252,7 +252,7 @@ export function Landing() {
                                 className="hero-headline"
                                 initial="hidden"
                                 animate="visible"
-                                style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+                                style={{ display: 'flex', flexWrap: 'wrap' }}
                                 variants={{
                                     hidden: { opacity: 0 },
                                     visible: {
