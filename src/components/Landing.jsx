@@ -99,6 +99,7 @@ const rubros = [
         ),
         despues: 'Los agentes procesan la carga bruta en tiempo real. Lo que antes consumía una mañana entera se resuelve antes de que termines el primer café.',
         integraciones: ['WhatsApp', 'Email', 'Portales'],
+        image: '/assets/cards/card_velocidad.jpeg'
     },
     {
         id: 'hitl',
@@ -111,6 +112,7 @@ const rubros = [
         ),
         despues: 'El sistema estructura el caos las 24 horas. Tu única tarea es auditar, aprobar, y aplicar el criterio que ninguna IA puede reemplazar.',
         integraciones: ['WhatsApp', 'Dashboard', 'Notificaciones'],
+        image: '/assets/cards/card_hitl.jpeg'
     },
     {
         id: 'verdad',
@@ -123,6 +125,7 @@ const rubros = [
         ),
         despues: 'Nada se modifica, inventa ni sobrescribe sin un "sí" explícito de tu parte. Ecosistemas blindados donde la IA opera bajo reglas inquebrantables.',
         integraciones: ['Base de datos', 'Auditoría', 'Control'],
+        image: '/assets/cards/card_gobernanza.jpeg'
     },
     {
         id: 'escala',
@@ -135,6 +138,7 @@ const rubros = [
         ),
         despues: 'Tu equipo deja de apagar incendios operativos. Las validaciones repetitivas se automatizan; el tiempo liberado vuelve a la estrategia.',
         integraciones: ['APIs', 'Flujos', 'Integraciones'],
+        image: '/assets/cards/card_escalabilidad.jpeg'
     },
 ];
 
@@ -415,8 +419,14 @@ export function Landing() {
                                         </h3>
                                         <p className="sc-card-body">{r.despues}</p>
                                     </div>
-                                    {/* children[1] — Video column (gets parallax) */}
+                                    {/* children[1] — Video/Image column */}
                                     <div className="sc-card-video">
+                                        <img
+                                            src={r.image}
+                                            alt={r.label}
+                                            className="sc-card-img"
+                                            loading="lazy"
+                                        />
                                         <div className="sc-card-play-icon">
                                             <div className="sc-play-circle">▶</div>
                                             <span>automatización · en vivo</span>
