@@ -1,0 +1,201 @@
+/* ══════════════════════════════════════════════════════
+   SCROLL STACK — Absolute Layout + Progress Injection
+   
+   Architecture: Apple-style Scrolljacking
+   - Container has N * 100vh height
+   - Sticky wrapper locks viewport for that duration
+   - Cards are absolute stack, driven purely by useScroll progress
+   ══════════════════════════════════════════════════════ */
+
+/* Container overrides */
+.rubros-section {
+    position: relative;
+    /* No overflow: clip needed anymore! 
+       The sticky wrapper handles local clipping */
+    background: var(--base-dark, #1B2207);
+    /* Ensuring seamless dark background transition */
+}
+
+/* Base styles for the animated card surfaces */
+.sc-card-inner {
+    border-radius: 36px;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.04),
+        0 24px 64px rgba(0, 0, 0, 0.12),
+        0 64px 120px rgba(0, 0, 0, 0.08);
+
+    /* Essential for the 3D depth blur effect to look crisp */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Since the DOM structure changed, we color cards via nth-child on the inner component */
+.wow-stack-inner {
+    background: #F6F5EF;
+    /* Default fallback */
+}
+
+/* Background palette applied properly */
+.wow-stack-inner[data-index="0"] {
+    background: #F6F5EF;
+}
+
+.wow-stack-inner[data-index="1"] {
+    background: #EEF3EF;
+}
+
+.wow-stack-inner[data-index="2"] {
+    background: #F4EBE6;
+}
+
+.wow-stack-inner[data-index="3"] {
+    background: #E9EEF4;
+}
+
+/* ── LEFT COL: Text ── */
+.sc-card-text-col {
+    overflow: hidden;
+}
+
+.sc-card-text {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.sc-card-title {
+    font-family: var(--font-heading, "Inter", sans-serif);
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--base-dark, #1B2207);
+    margin: 0;
+}
+
+.sc-card-body {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: rgba(27, 34, 7, 0.65);
+    margin: 0;
+    max-width: 42ch;
+}
+
+/* ── RIGHT COL: Video placeholder ── */
+.sc-card-video-col {
+    /* Contains the glow cleanly */
+    overflow: hidden;
+}
+
+.sc-card-video {
+    width: 100%;
+    height: 100%;
+    background: #1B2207;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: inherit;
+    /* adopts the radius passed via inline style */
+    overflow: hidden;
+}
+
+/* Grain texture */
+.sc-card-video::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Per-card softer color glow to eliminate edge clipping artifacts */
+.wow-stack-inner[data-index="0"] .sc-card-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(38, 156, 138, 0.15), transparent 65%);
+}
+
+.wow-stack-inner[data-index="1"] .sc-card-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(38, 156, 138, 0.12), transparent 65%);
+}
+
+.wow-stack-inner[data-index="2"] .sc-card-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(211, 77, 34, 0.16), transparent 65%);
+}
+
+.wow-stack-inner[data-index="3"] .sc-card-video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(38, 156, 138, 0.12), transparent 65%);
+}
+
+/* Play icon */
+.sc-card-play-icon {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    color: rgba(246, 245, 239, 0.5);
+    font-family: var(--font-mono, "Share Tech Mono", monospace);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.sc-play-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(246, 245, 239, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: rgba(246, 245, 239, 0.4);
+    transition: all 0.3s ease;
+}
+
+.wow-stack-inner:hover .sc-play-circle {
+    border-color: rgba(246, 245, 239, 0.5);
+    color: rgba(246, 245, 239, 0.8);
+    transform: scale(1.05);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .wow-stack-inner {
+        flex-direction: column !important;
+        /* Overrides inline alternate layout on mobile */
+    }
+
+    .sc-card-video-col {
+        min-height: 240px;
+        border-radius: 0 0 36px 36px !important;
+        width: 100% !important;
+    }
+
+    .sc-card-text {
+        padding: 3.5rem 2.5rem;
+    }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Göbekli - AI Invisible</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons para íconos finos y modernos -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Capa de texturas de fondo -->
+    <div class="texture-overlay"></div>
+    <div class="bg-grid"></div>
+
+    <div class="app-container">
+        <!-- Sidebar / Navigation -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <div class="logo-mark">
+                    <div class="rect-turquoise"></div>
+                    <div class="rect-orange"></div>
+                </div>
+                <h1 class="logo-text">GÖBEKLI</h1>
+            </div>
+
+            <p class="mission-text">Automatizamos la fricción, no tu cabeza.</p>
+
+            <ul class="nav-links">
+                <li class="nav-item active">
+                    <i class="ph ph-squares-four"></i>
+                    <span>Overview</span>
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-keyboard"></i>
+                    <span>Inputs</span>
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-list-dashes"></i>
+                    <span>Tabs</span>
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-receipt"></i>
+                    <span>Billing</span>
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-info"></i>
+                    <span>Info</span>
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-gear"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+
+            <div class="user-control">
+                <button class="btn btn-secondary"><i class="ph ph-globe"></i> Visitar sitio</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search invoices">
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-icon"><i class="ph ph-bell"></i></button>
+                    <div class="avatar">
+                        <img src="https://i.pravatar.cc/150?img=68" alt="User Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-wrapper">
+                <div class="hero-section">
+                    <h2 class="headline-1">El sistema hace el<br><strong>esfuerzo bruto</strong>, <br>tú cierras el trato.</h2>
+                    <p class="subhead-1">Integrar la inteligencia artificial en las pequeñas y medianas empresas de forma invisible y sin fricción, absorbiendo toda la complejidad tecnológica.</p>
+                </div>
+
+                <!-- Modulos y componentes -->
+                <div class="components-grid">
+                    
+                    <!-- Tarjeta de Controles -->
+                    <div class="card glass-card">
+                        <div class="card-header">
+                            <h3 class="subhead-2">System Controls</h3>
+                            <button class="btn btn-icon btn-small"><i class="ph ph-dots-three"></i></button>
+                        </div>
+                        <div class="controls-list">
+                            <div class="control-row">
+                                <span class="label-1">AI Automated Triage</span>
+                                <label class="switch switch-dark">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="control-row">
+                                <span class="label-1">Human-in-the-Loop</span>
+                                <label class="switch switch-cream">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="control-row">
+                                <span class="label-1">Frictionless Mode</span>
+                                <label class="switch switch-beige">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta de Acciones Rapidas -->
+                    <div class="card glass-card">
+                        <div class="card-header">
+                            <h3 class="subhead-2">Quick Actions</h3>
+                        </div>
+                        <div class="actions-group">
+                            <button class="btn btn-primary"><i class="ph ph-warning-circle"></i> Alerts</button>
+                            <button class="btn btn-accent"><i class="ph ph-credit-card"></i> Billing</button>
+                            <button class="btn btn-outline"><i class="ph ph-image"></i> Buscar imagen</button>
+                        </div>
+                        
+                        <div class="chips-container mt-4">
+                            <h4 class="label-1 mb-2">Filters (Chips)</h4>
+                            <div class="chips-list">
+                                <span class="chip active">All</span>
+                                <span class="chip">Pending</span>
+                                <span class="chip">Approved</span>
+                                <span class="chip">Errors</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Datos y Metricas -->
+                    <div class="card glass-card span-2">
+                        <div class="card-header">
+                            <h3 class="subhead-2">Performance Metrics</h3>
+                            <div class="tab-list">
+                                <button class="tab active">Daily</button>
+                                <button class="tab">Weekly</button>
+                                <button class="tab">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <span class="measure-1">Processed Invoices</span>
+                                <span class="value-1">1,204</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="measure-1">Time Saved (hrs)</span>
+                                <span class="value-1">142</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="measure-1">Human Interventions</span>
+                                <span class="value-1">12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

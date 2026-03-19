@@ -1,0 +1,19 @@
+{
+    "project": "Gobekli",
+    "version": "1.0.0",
+    "theme": {
+        "colors": {
+            "accentOrange": "#d33d0f",
+            "accentTurquoise": "#269c8a",
+            "baseDark": "#1b2207",
+            "surfaceLight": "#f6f5ef"
+        },
+        "typography": {
+            "fontFamily": "'Outfit', sans-serif"
+        },
+        "features": {
+            "enableFrictionlessMode": false,
+            "requireHumanVerification": true
+        }
+    }
+}
