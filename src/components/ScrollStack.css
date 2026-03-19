@@ -162,39 +162,7 @@
     background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(38, 156, 138, 0.12), transparent 65%);
 }
 
-/* Play icon */
-.sc-card-play-icon {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-    color: rgba(246, 245, 239, 0.5);
-    font-family: var(--font-mono, "Share Tech Mono", monospace);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-}
-
-.sc-play-circle {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 1px solid rgba(246, 245, 239, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: rgba(246, 245, 239, 0.4);
-    transition: all 0.3s ease;
-}
-
-.wow-stack-inner:hover .sc-play-circle {
-    border-color: rgba(246, 245, 239, 0.5);
-    color: rgba(246, 245, 239, 0.8);
-    transform: scale(1.05);
-}
+/* End of card column styles */
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

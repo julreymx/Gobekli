@@ -427,10 +427,6 @@ export function Landing() {
                                             className="sc-card-img"
                                             loading="lazy"
                                         />
-                                        <div className="sc-card-play-icon">
-                                            <div className="sc-play-circle">▶</div>
-                                            <span>automatización · en vivo</span>
-                                        </div>
                                     </div>
                                 </ScrollStackItem>
                             ))}
