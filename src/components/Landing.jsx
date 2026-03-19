@@ -234,7 +234,7 @@ export function Landing() {
 
             {/* ── NAV ── */}
             <nav className="landing-nav">
-                <Logo size={0.4} animated={false} layoutIdPrefix="gobekli" />
+                <Logo size={typeof window !== 'undefined' && window.innerWidth < 900 ? 0.28 : 0.4} animated={false} layoutIdPrefix="gobekli" />
             </nav>
 
             {/* ── HERO ── */}

@@ -190,26 +190,35 @@
     }
 
     .sc-card-video-col {
-        min-height: 154px !important;
+        min-height: 180px !important;
         flex: 0 0 auto !important;
+        background: rgba(0, 0, 0, 0.03);
+        /* Subtle backdrop */
     }
 
     .sc-card-text {
-        padding: 2rem 1.5rem 1.5rem !important;
+        padding: 1.5rem 1.25rem 0.75rem !important;
         flex: 1 1 auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Center text vertically in the available space */
     }
 
     .sc-card-title {
-        font-size: 1.55rem !important;
-        margin-bottom: 0.75rem !important;
+        font-size: 1.4rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.2 !important;
     }
 
     .sc-card-body {
-        font-size: 0.9rem !important;
-        line-height: 1.45 !important;
+        font-size: 0.88rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.5rem !important;
     }
 
     .sc-layout-box {
-        min-height: 88vh !important;
+        min-height: 82vh !important;
+        /* Slightly shorter to avoid empty space */
     }
 }

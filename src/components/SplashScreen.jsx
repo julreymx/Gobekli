@@ -29,7 +29,7 @@ export const SplashScreen = () => {
             {/* Logo: layoutId permite que vuele a su posición en el hero */}
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <Logo
-                    size={2.5}
+                    size={typeof window !== 'undefined' && window.innerWidth < 900 ? 1.3 : 1.8}
                     animated={true}
                     delayTime={0.5}
                     layoutIdPrefix="gobekli"
