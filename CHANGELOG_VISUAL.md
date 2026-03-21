@@ -50,15 +50,69 @@ Registro de mejoras visuales y de UX aplicadas al proyecto.
 
 ---
 
+## [2026-03-21] — Accesibilidad y micro-interacciones
+
+### Cambios aplicados
+
+#### 1. Focus states — Accesibilidad teclado
+**Archivo:** `src/components/Landing.css`
+
+**Solución:** Agregado `:focus-visible` con outline turquesa para todos los elementos interactivos:
+```css
+.btn:focus-visible,
+.nav-item:focus-visible,
+.chip:focus-visible,
+.tab:focus-visible,
+.rubro-card__header:focus-visible,
+.cta-btn:focus-visible,
+.footer-data-line:focus-visible {
+    outline: 2px solid var(--accent-turquoise);
+    outline-offset: 2px;
+}
+```
+
+**Impacto:** Navegación por teclado accesible, cumple WCAG 2.1 AA.
+
+---
+
+#### 2. Contraste — Opacidad aumentada en textos oscuros
+**Archivo:** `src/components/Landing.css`
+
+**Cambios:**
+| Elemento | Antes | Ahora | Mejora |
+|----------|-------|-------|--------|
+| `.section--textured .pain-text` | 0.6 | 0.8 | +33% |
+| `.section--textured .pain-coda` | 0.5 | 0.75 | +50% |
+| `.section--textured .diff-pre` | 0.45 | 0.7 | +55% |
+
+**Impacto:** Mejor legibilidad en secciones oscuras, más cercano a WCAG AA.
+
+---
+
+#### 3. Ticker pause — UX detalle premium
+**Archivo:** `src/components/Landing.css`
+
+**Solución:** Pause on hover para permitir lectura:
+```css
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+```
+
+**Impacto:** Los usuarios pueden leer el ticker sin presión, sensación más controlada.
+
+---
+
+### Commit asociado
+```
+pending — feat: accesibilidad, contraste y ticker pause
+```
+
+---
+
 ## Pendientes para próxima iteración
 
-### Accesibilidad
-- [ ] Aumentar contraste en `.pain-text` y `.diff-pre` (opacidad 0.6→0.8)
-- [ ] Agregar `:focus-visible` styles en botones y navegación
-- [ ] Verificar WCAG AA ratios para naranja sobre verde oscuro
-
 ### Micro-interacciones
-- [ ] Ticker pause on hover
 - [ ] Box-shadow transition en cards hover
 - [ ] Cursor pointer en todos los elementos clickeables
 

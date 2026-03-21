@@ -177,6 +177,18 @@
     /* compensar porque la mono es grande */
 }
 
+/* ── Focus states — Accesibilidad teclado ── */
+.btn:focus-visible,
+.nav-item:focus-visible,
+.chip:focus-visible,
+.tab:focus-visible,
+.rubro-card__header:focus-visible,
+.cta-btn:focus-visible,
+.footer-data-line:focus-visible {
+    outline: 2px solid var(--accent-turquoise);
+    outline-offset: 2px;
+}
+
 /* Hover focus: el h1 completo desenfoca todos los .hl salvo el que está bajo el cursor */
 .hero-headline:hover .hl,
 .section-headline:hover .hl {
@@ -353,6 +365,10 @@
     align-items: center;
 }
 
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
 .ticker-item {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -405,11 +421,11 @@
 }
 
 .section--textured .pain-text {
-    color: rgba(246, 245, 239, 0.6);
+    color: rgba(246, 245, 239, 0.8);
 }
 
 .section--textured .pain-coda {
-    color: rgba(246, 245, 239, 0.5);
+    color: rgba(246, 245, 239, 0.75);
 }
 
 .section--textured .pain-coda strong {
@@ -624,7 +640,7 @@
 .diff-pre {
     font-family: var(--font-mono);
     font-size: 0.78rem;
-    color: rgba(246, 245, 239, 0.45);
+    color: rgba(246, 245, 239, 0.7);
     text-decoration: line-through;
     margin-bottom: 0.6rem;
     text-transform: uppercase;
