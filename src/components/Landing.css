@@ -536,15 +536,15 @@
 .pain-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3.5rem;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 .pain-item {
     display: flex;
     align-items: flex-start;
-    gap: 1.25rem;
-    padding: 2.25rem;
+    gap: 1.5rem;
+    padding: 2.5rem;
 }
 
 .pain-icon {
@@ -612,7 +612,7 @@
 }
 
 .diff-item {
-    padding: 3rem;
+    padding: 2.5rem;
     background: transparent;
     transition: background 0.25s;
 }
